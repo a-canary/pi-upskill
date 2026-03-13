@@ -1,0 +1,21 @@
+{
+  "name": "pi-upskill",
+  "version": "1.0.0",
+  "description": "Learn from failures, reduce token waste, improve automatically",
+  "keywords": ["pi-package"],
+  "author": "a-canary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-canary/pi-upskill.git"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*",
+    "@sinclair/typebox": "*"
+  },
+  "pi": {
+    "extensions": ["./extension"],
+    "skills": ["./skills"]
+  }
+}

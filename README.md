@@ -14,15 +14,17 @@ pi-upskill tracks corrections (failures → fixes) and generates skills/rules to
 ## Installation
 
 ```bash
-# Link extension globally
-ln -s ~/pi-upskill/extension/index.ts ~/.pi/agent/extensions/upskill.ts
+# From git (recommended)
+pi install git:github.com/a-canary/pi-upskill
 
-# Or add to .pi/settings.json
-{
-  "extensions": ["~/pi-upskill/extension"],
-  "skills": ["~/pi-upskill/skills/backfill", "~/pi-upskill/skills/analyze"]
-}
+# Or from npm after publishing
+pi install npm:pi-upskill
+
+# Try without installing
+pi -e git:github.com/a-canary/pi-upskill
 ```
+
+After install, reload: `/reload`
 
 ## Usage
 
