@@ -18,6 +18,7 @@
  */
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { Text } from "@mariozechner/pi-tui";
 import { Type } from "@sinclair/typebox";
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -176,18 +177,18 @@ Each field must be 30 words or less. Estimate tokens_wasted based on conversatio
 		renderCall(args, theme) {
 			const strength = args.strength || "pattern";
 			const strengthColor = strength === "strong" ? "warning" : "muted";
-			return theme.fg("toolTitle", "upskill-log ") + theme.fg(strengthColor, `[${strength}]`);
+			return new Text(theme.fg("toolTitle", "upskill-log ") + theme.fg(strengthColor, `[${strength}]`), 0, 0);
 		},
 
 		renderResult(result, _options, theme) {
 			const details = result.details as { count: number; threshold: number } | undefined;
 			if (!details) {
 				const text = result.content[0];
-				return theme.fg("success", text?.type === "text" ? text.text : "Logged");
+				return new Text(theme.fg("success", text?.type === "text" ? text.text : "Logged"), 0, 0);
 			}
 			const pct = Math.round((details.count / details.threshold) * 100);
 			const bar = "█".repeat(Math.min(10, Math.floor(pct / 10))) + "░".repeat(10 - Math.min(10, Math.floor(pct / 10)));
-			return theme.fg("success", `✓ Logged #${details.count} `) + theme.fg("dim", `[${bar}] ${details.count}/${details.threshold}`);
+			return new Text(theme.fg("success", `✓ Logged #${details.count} `) + theme.fg("dim", `[${bar}] ${details.count}/${details.threshold}`), 0, 0);
 		},
 	});
 
