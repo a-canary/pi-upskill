@@ -1,5 +1,5 @@
 {
-  "name": "pi-upskill",
+  "name": "@a-canary/pi-upskill",
   "version": "1.0.0",
   "description": "Learn from failures, reduce token waste, improve automatically",
   "keywords": ["pi-package"],
